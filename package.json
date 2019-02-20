@@ -5,6 +5,7 @@
   "keywords": [
     "vega",
     "transform",
+    "omnisci",
     "core"
   ],
   "license": "BSD-3-Clause",
@@ -12,8 +13,9 @@
   "main": "build/vega-transform-omnisci-core.js",
   "umd:main": "build/vega-transform-omnisci-core.umd.js",
   "module": "build/vega-transform-omnisci-core.mjs",
-  "unpkg": "build/vega-transform-omnisci-core.min.js",
-  "jsdelivr": "build/vega-transform-omnisci-core.min.js",
+  "browser": "build/vega-transform-omnisci-core.umd.js",
+  "unpkg": "build/vega-transform-omnisci-core.umd.js",
+  "jsdelivr": "build/vega-transform-omnisci-core.umd.js",
   "source": "index.js",
   "repository": "vega/vega-transform-omnisci-core",
   "scripts": {

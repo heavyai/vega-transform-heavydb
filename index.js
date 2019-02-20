@@ -10,15 +10,7 @@ export default function Core(params) {
   Transform.call(this, [], params);
 }
 
-Core.Definition = {
-  type: "MapD",
-  metadata: { changes: true, source: true },
-  params: [{ name: "query", type: "string", required: true }]
-};
-
-const prototype = inherits(Core, Transform);
-
-prototype.session = function(session) {
+Core.session = function(session) {
   if (session) {
     this.session = session;
     return this;
@@ -26,6 +18,14 @@ prototype.session = function(session) {
 
   return this.session;
 };
+
+Core.Definition = {
+  type: "MapD",
+  metadata: { changes: true, source: true },
+  params: [{ name: "query", type: "string", required: true }]
+};
+
+const prototype = inherits(Core, Transform);
 
 prototype.transform = async function(_, pulse) {
   if (!this.session) {

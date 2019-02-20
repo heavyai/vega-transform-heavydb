@@ -23,7 +23,7 @@ Here is a complete example.
 
 ```js
 import "@mapd/connector/dist/browser-connector";
-import CoreTransform from "vega-transform-core";
+import CoreTransform from "vega-transform-omnisci-core";
 import vega from "vega";
 
 const connection = new window.MapdCon()
@@ -51,7 +51,7 @@ connection.connectAsync().then(session => {
 
 ### Vega Specifications
 
-Once `vega-transform-core` has been imported and registered, Vega specs can reference the transform and get data from Core like so:
+Once `vega-transform-omnisci-core` has been imported and registered, Vega specs can reference the transform and get data from Core like so:
 
 ```json
 {
