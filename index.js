@@ -10,15 +10,7 @@ export default function Core(params) {
   Transform.call(this, [], params);
 }
 
-Core.Definition = {
-  type: "MapD",
-  metadata: { changes: true, source: true },
-  params: [{ name: "query", type: "string", required: true }]
-};
-
-const prototype = inherits(Core, Transform);
-
-prototype.session = function(session) {
+Core.session = function(session) {
   if (session) {
     this._session = session;
     return this;
@@ -27,14 +19,22 @@ prototype.session = function(session) {
   return this._session;
 };
 
+Core.Definition = {
+  type: "Core",
+  metadata: { changes: true, source: true },
+  params: [{ name: "query", type: "string", required: true }]
+};
+
+const prototype = inherits(Core, Transform);
+
 prototype.transform = async function(_, pulse) {
-  if (!this._session) {
+    if (!Core._session) {
     throw Error(
       "OmniSci Core session missing. Please assign it to the vega transform by calling `CoreTransform.session(session).`"
     );
   }
 
-  const result = await this._session.queryAsync(_.query);
+  const result = await Core._session.queryAsync(_.query);
 
   result.forEach(ingest);
 

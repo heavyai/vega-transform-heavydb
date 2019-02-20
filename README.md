@@ -23,7 +23,7 @@ Here is a complete example.
 
 ```js
 import "@mapd/connector/dist/browser-connector";
-import CoreTransform from "vega-transform-omnisci-core";
+import Core from "vega-transform-omnisci-core";
 import vega from "vega";
 
 const connection = new window.MapdCon()
@@ -37,15 +37,16 @@ const connection = new window.MapdCon()
 // connect to core database and create a transform with a handle to the session
 connection.connectAsync().then(session => {
   // pass the session to the core transform
-  CoreTransform.session(session);
+  Core.session(session);
 
   // register OmniSci Core transform as "core"
-  vega.transforms["core"] = CoreTransform;
+  vega.transforms["core"] = Core;
 
   // now you can use the transform in a Vega spec
   const view = new vega.View(vega.parse(spec))
-    .initialize(document.querySelector("#vis"))
-    .run();
+    .initialize(document.querySelector("#vis"));
+  
+  view.runAsync();
 });
 ```
 

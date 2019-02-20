@@ -9,7 +9,7 @@
     "core"
   ],
   "license": "BSD-3-Clause",
-  "author": "Dominik Moritz (http://idl.cs.washington.edu)",
+  "author": "Dominik Moritz (https://www.domoritz.de/)",
   "main": "build/vega-transform-omnisci-core.js",
   "umd:main": "build/vega-transform-omnisci-core.umd.js",
   "module": "build/vega-transform-omnisci-core.mjs",
