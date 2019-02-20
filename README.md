@@ -4,6 +4,8 @@ Data transform to load data from an [OmniSci Core](https://www.omnisci.com/platf
 
 This package extends Vega's set of data transforms to support loading data from a database in Vega version 5.0 and higher. 
 
+Try this transform in our [Observable demo](https://beta.observablehq.com/@domoritz/vega-with-omnisci-core-transform) or the [scalable Vega demo app](https://github.com/vega/scalable-vega).
+
 ## Usage Instructions
 
 Install the transform with
