@@ -1,3 +1,5 @@
-*.sublime-*
-build/*.zip
+.eslintrc
+.travis.yml
+build/
+LICENSE
 test/
