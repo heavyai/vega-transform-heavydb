@@ -1,10 +1,16 @@
-# vega-transform-core
+# Vega Transform for OmniSci Core
 
 Data transform to load data from an [OmniSci Core](https://www.omnisci.com/platform/core/) database in [Vega](https://vega.github.io/vega/).
 
 This package extends Vega's set of data transforms to support loading data from a database in Vega version 5.0 and higher. 
 
 ## Usage Instructions
+
+Install the transform with
+
+```
+yarn add vega-transform-omnici-core
+```
 
 To use the core transform, you must set the `session`. To create a session, create a connection and connect to it. Then assign the session to the Core transform with `Core.sesssion(session)`.
 
