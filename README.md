@@ -41,7 +41,7 @@ connection.connectAsync().then(session => {
   // pass the session to the core transform
   QueryCore.session(session);
 
-  // register OmniSci Core transform as "core"
+  // register OmniSci Core transform
   vega.transforms["querycore"] = QueryCore;
 
   // now you can use the transform in a Vega spec
