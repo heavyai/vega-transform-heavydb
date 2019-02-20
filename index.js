@@ -1,16 +1,16 @@
 import { inherits, ingest, Transform } from "vega";
 
 /**
- * Generates a unction to load data from an OmniSci Core database.
+ * Generates a function to query data from an OmniSci Core database.
  * @constructor
  * @param {object} params - The parameters for this operator.
  * @param {function(object): *} params.query - The SQL query.
  */
-export default function Core(params) {
+export default function QueryCore(params) {
   Transform.call(this, [], params);
 }
 
-Core.session = function(session) {
+QueryCore.session = function(session) {
   if (session) {
     this._session = session;
     return this;
@@ -19,22 +19,22 @@ Core.session = function(session) {
   return this._session;
 };
 
-Core.Definition = {
-  type: "Core",
+QueryCore.Definition = {
+  type: "QueryCore",
   metadata: { changes: true, source: true },
   params: [{ name: "query", type: "string", required: true }]
 };
 
-const prototype = inherits(Core, Transform);
+const prototype = inherits(QueryCore, Transform);
 
 prototype.transform = async function(_, pulse) {
-    if (!Core._session) {
+    if (!QueryCore._session) {
     throw Error(
-      "OmniSci Core session missing. Please assign it to the vega transform by calling `CoreTransform.session(session).`"
+      "OmniSci Core session missing. Please assign it to the vega transform by calling `QueryCore.session(session).`"
     );
   }
 
-  const result = await Core._session.queryAsync(_.query);
+  const result = await QueryCore._session.queryAsync(_.query);
 
   result.forEach(ingest);
 

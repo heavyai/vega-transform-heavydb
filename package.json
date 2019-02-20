@@ -19,8 +19,8 @@
   "source": "index.js",
   "repository": "vega/vega-transform-omnisci-core",
   "scripts": {
-    "build": "microbundle --external vega --name CoreTransform",
-    "watch": "microbundle watch --external vega --name CoreTransform",
+    "build": "microbundle --external vega --name QueryCore",
+    "watch": "microbundle watch --external vega --name QueryCore",
     "lint": "eslint index.js",
     "prepublishOnly": "yarn lint && yarn build",
     "postpublish": "git push && git push --tags"

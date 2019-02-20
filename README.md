@@ -1,4 +1,4 @@
-# Vega Transform for OmniSci Core
+# Vega Transform to Query OmniSci Core
 
 Data transform to load data from an [OmniSci Core](https://www.omnisci.com/platform/core/) database in [Vega](https://vega.github.io/vega/).
 
@@ -12,18 +12,18 @@ Install the transform with
 yarn add vega-transform-omnici-core
 ```
 
-To use the core transform, you must set the `session`. To create a session, create a connection and connect to it. Then assign the session to the Core transform with `Core.sesssion(session)`.
+To use the core transform, you must set the `session`. To create a session, create a connection and connect to it. Then assign the session to the Core transform with `QueryCore.sesssion(session)`. the register the transform as `querycore`.
 
 ```js
-Core.session(session);
-transforms["core"] = Core;
+QueryCore.session(session);
+transforms["querycore"] = QueryCore;
 ```
 
 Here is a complete example.
 
 ```js
 import "@mapd/connector/dist/browser-connector";
-import Core from "vega-transform-omnisci-core";
+import QueryCore from "vega-transform-omnisci-core";
 import vega from "vega";
 
 const connection = new window.MapdCon()
@@ -37,10 +37,10 @@ const connection = new window.MapdCon()
 // connect to core database and create a transform with a handle to the session
 connection.connectAsync().then(session => {
   // pass the session to the core transform
-  Core.session(session);
+  QueryCore.session(session);
 
   // register OmniSci Core transform as "core"
-  vega.transforms["core"] = Core;
+  vega.transforms["querycore"] = QueryCore;
 
   // now you can use the transform in a Vega spec
   const view = new vega.View(vega.parse(spec))
@@ -60,7 +60,7 @@ Once `vega-transform-omnisci-core` has been imported and registered, Vega specs 
     {
       "name": "table",
       "transform": [{
-        "type": "core",
+        "type": "querycore",
         "query": "select count(*) from flights_donotmodify"
       }]
     }
