@@ -1,7 +1,7 @@
 import { inherits, ingest, Transform } from "vega";
 
 /**
- * Generates a binning function for discretizing data.
+ * Generates a unction to load data from an OmniSci Core database.
  * @constructor
  * @param {object} params - The parameters for this operator.
  * @param {function(object): *} params.query - The SQL query.
@@ -9,15 +9,6 @@ import { inherits, ingest, Transform } from "vega";
 export default function Core(params) {
   Transform.call(this, [], params);
 }
-
-Core.session = function(session) {
-  if (session) {
-    this._session = session;
-    return this;
-  }
-
-  return this._session;
-};
 
 Core.Definition = {
   type: "MapD",
@@ -27,9 +18,20 @@ Core.Definition = {
 
 const prototype = inherits(Core, Transform);
 
+prototype.session = function(session) {
+  if (session) {
+    this._session = session;
+    return this;
+  }
+
+  return this._session;
+};
+
 prototype.transform = async function(_, pulse) {
   if (!this._session) {
-    throw Error("OmniSci Core session missing. Please assign it to the vega transform by calling `CoreTransform.session(session).`");
+    throw Error(
+      "OmniSci Core session missing. Please assign it to the vega transform by calling `CoreTransform.session(session).`"
+    );
   }
 
   const result = await this._session.queryAsync(_.query);
