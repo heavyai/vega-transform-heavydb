@@ -10,27 +10,21 @@
   "license": "BSD-3-Clause",
   "author": "Dominik Moritz (http://idl.cs.washington.edu)",
   "main": "build/vega-transform-omnisci-core.js",
-  "module": "src/core",
+  "umd:main": "build/vega-transform-omnisci-core.umd.js",
+  "module": "build/vega-transform-omnisci-core.mjs",
   "unpkg": "build/vega-transform-omnisci-core.min.js",
   "jsdelivr": "build/vega-transform-omnisci-core.min.js",
+  "source": "index.js",
   "repository": "vega/vega-transform-omnisci-core",
   "scripts": {
-    "rollup": "rollup -f umd -g vega:vega -n vega.format -o build/vega-transform-omnisci-core.js -- index.js",
-    "prebuild": "rimraf build && mkdir build",
-    "build": "yarn rollup",
-    "postbuild": "terser build/vega-transform-omnisci-core.js -c -m -o build/vega-transform-omnisci-core.min.js",
-    "lint": "eslint index.js src",
+    "build": "microbundle --external vega --name CoreTransform",
+    "watch": "microbundle watch --external vega --name CoreTransform",
+    "lint": "eslint index.js",
     "prepublishOnly": "yarn lint && yarn build",
     "postpublish": "git push && git push --tags"
   },
-  "dependencies": {
-    "@mapd/connector": "^4.4.0"
-  },
   "devDependencies": {
     "eslint": "^5.13.0",
-    "rimraf": "^2.6.3",
-    "rollup": "^1.1.2",
-    "tape": "^4.10.0",
-    "terser": "^3.16.1"
+    "microbundle": "^0.9.0"
   }
 }

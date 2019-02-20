@@ -17,8 +17,8 @@ Here is a complete example.
 
 ```js
 import "@mapd/connector/dist/browser-connector";
-import core from "vega-transform-core";
-import {transforms} from"vega";
+import CoreTransform from "vega-transform-core";
+import vega from "vega";
 
 const connection = new window.MapdCon()
   .protocol("https")
@@ -31,10 +31,10 @@ const connection = new window.MapdCon()
 // connect to core database and create a transform with a handle to the session
 connection.connectAsync().then(session => {
   // pass the session to the core transform
-  Core.session(session);
+  CoreTransform.session(session);
 
-  // register core transform as "core"
-  transforms["core"] = Core;
+  // register OmniSci Core transform as "core"
+  vega.transforms["core"] = CoreTransform;
 
   // now you can use the transform in a Vega spec
   const view = new vega.View(vega.parse(spec))
