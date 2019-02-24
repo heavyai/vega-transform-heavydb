@@ -1,6 +1,6 @@
 {
   "name": "vega-transform-omnisci-core",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Vega transform for OmniSci Core.",
   "keywords": [
     "vega",
