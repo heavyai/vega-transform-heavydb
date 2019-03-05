@@ -26,7 +26,7 @@
     "postpublish": "git push && git push --tags"
   },
   "devDependencies": {
-    "eslint": "^5.14.1",
-    "microbundle": "^0.10.1"
+    "eslint": "^5.15.1",
+    "microbundle": "^0.11.0"
   }
 }
