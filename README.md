@@ -72,3 +72,5 @@ Once `vega-transform-omnisci-core` has been imported and registered, Vega specs 
   ]
 }
 ```
+
+Check out a complete demo at https://github.com/vega/scalable-vega. 
