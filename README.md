@@ -1,9 +1,9 @@
-# Vega Transform to Query OmniSci Core
+# Vega Transform to Query OmniSciDB
 
 [![npm version](https://img.shields.io/npm/v/vega-transform-omnisci-core.svg)](https://www.npmjs.com/package/vega-transform-omnisci-core)
 [![Build Status](https://travis-ci.com/omnisci/vega-transform-omnisci-core.svg?branch=master)](https://travis-ci.com/omnisci/vega-transform-omnisci-core)
 
-Data transform to load data from an [OmniSci Core](https://www.omnisci.com/platform/core/) database in [Vega](https://vega.github.io/vega/).
+Data transform to load data from an [OmniSciDB](https://www.omnisci.com/platform/omniscidb) database in [Vega](https://vega.github.io/vega/).
 
 This package extends Vega's set of data transforms to support loading data from a database in Vega version 5.0 and higher. 
 
@@ -57,7 +57,7 @@ connection.connectAsync().then(session => {
 
 ### Vega Specifications
 
-Once `vega-transform-omnisci-core` has been imported and registered, Vega specs can reference the transform and get data from Core like so:
+Once `vega-transform-omnisci-core` has been imported and registered, Vega specs can reference the transform and get data from OmniSciDB like this:
 
 ```json
 {
