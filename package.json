@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "eslint": "^6.2.0",
-    "microbundle": "^0.11.0"
+    "microbundle": "^0.12.0"
   },
   "peerDependencies": {
     "vega": "^5.3.0"
