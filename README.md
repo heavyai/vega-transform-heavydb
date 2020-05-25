@@ -1,7 +1,7 @@
 # Vega Transform to Query OmniSciDB
 
 [![npm version](https://img.shields.io/npm/v/vega-transform-omnisci-core.svg)](https://www.npmjs.com/package/vega-transform-omnisci-core)
-[![Build Status](https://travis-ci.com/omnisci/vega-transform-omnisci-core.svg?branch=master)](https://travis-ci.com/omnisci/vega-transform-omnisci-core)
+![Test](https://github.com/omnisci/vega-transform-omnisci-core/workflows/Test/badge.svg)
 
 Data transform to load data from an [OmniSciDB](https://www.omnisci.com/platform/omniscidb) database in [Vega](https://vega.github.io/vega/).
 
