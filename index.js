@@ -10,6 +10,11 @@ export default function QueryCore(params) {
   Transform.call(this, [], params);
 }
 
+/**
+ * Set the OmniSci Core session.
+ * 
+ * @param {*} session 
+ */
 QueryCore.session = function(session) {
   if (session) {
     this._session = session;
@@ -33,6 +38,8 @@ prototype.transform = async function(_, pulse) {
       "OmniSci Core session missing. Please assign it to the Vega transform by calling `QueryCore.session(session).`"
     );
   }
+
+  pulse.dataflow.info(`OmniSci Core Query: ${_.query}`);
 
   const result = await QueryCore._session.queryAsync(_.query);
 
