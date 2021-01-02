@@ -30,7 +30,7 @@ const prototype = inherits(QueryCore, Transform);
 prototype.transform = async function(_, pulse) {
   if (!QueryCore._session) {
     throw Error(
-      "OmniSci Core session missing. Please assign it to the vega transform by calling `QueryCore.session(session).`"
+      "OmniSci Core session missing. Please assign it to the Vega transform by calling `QueryCore.session(session).`"
     );
   }
 
