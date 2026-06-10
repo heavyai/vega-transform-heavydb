@@ -1,0 +1,39 @@
+# SPDX-FileCopyrightText: Copyright (c) 2026, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+# SPDX-License-Identifier: Apache-2.0
+#
+# License-header enforcement via pre-commit + rapidsai/pre-commit-hooks.
+#
+# Install locally with:
+#     pip install pre-commit && pre-commit install
+#
+# Run on all files (bulk update):
+#     PRE_COMMIT_HOME=$TMPDIR/pre-commit-cache pre-commit run strip-legacy-license-header --all-files
+#     PRE_COMMIT_HOME=$TMPDIR/pre-commit-cache pre-commit run verify-copyright --all-files
+
+exclude: |
+  (?x)
+    ^node_modules/
+
+repos:
+
+# Remove any leftover legacy HEAVY.AI/OmniSci/MapD header BEFORE verify-copyright
+# runs, so the NVIDIA SPDX header replaces it rather than stacking on top of it.
+- repo: local
+  hooks:
+    - id: strip-legacy-license-header
+      name: strip legacy HEAVY.AI/OmniSci/MapD license headers
+      entry: python3 scripts/strip_legacy_license_header.py
+      language: system
+      files: &license_files |
+        (?x)
+          [.](js)$
+
+# Insert/maintain the NVIDIA SPDX header. --spdx emits the two-line
+# SPDX-FileCopyrightText / SPDX-License-Identifier block; the year range is
+# derived from git history and auto-bumped on edit.
+- repo: https://github.com/rapidsai/pre-commit-hooks
+  rev: v1.4.3
+  hooks:
+    - id: verify-copyright
+      args: [--fix, --spdx]
+      files: *license_files
