@@ -32,7 +32,7 @@ repos:
 # SPDX-FileCopyrightText / SPDX-License-Identifier block; the year range is
 # derived from git history and auto-bumped on edit.
 - repo: https://github.com/rapidsai/pre-commit-hooks
-  rev: v1.4.3
+  rev: v1.5.0
   hooks:
     - id: verify-copyright
       args: [--fix, --spdx]
