@@ -1,3 +1,8 @@
+> [!IMPORTANT]
+>
+> As of 05/27/2026 this project has been deprecated. ibis-heavyai is not maintained anymore.
+
+
 # Vega Transform to Query OmniSciDB
 
 [![npm version](https://img.shields.io/npm/v/vega-transform-omnisci-core.svg)](https://www.npmjs.com/package/vega-transform-omnisci-core)
